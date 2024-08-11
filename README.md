@@ -25,7 +25,7 @@ A Discord bot built with Discord.js v14 that automates the banning and kicking o
 - `/agekick <duration>`: Set the minimum account age required to join the server (e.g., `1w`, `10m`). If not specified, defaults to 1 week.
 
 ## Configuration
- - The bot will automatically create a configuration file for each guild in the guild_configs directory. You can manually edit these files to - - - adjust settings like the ageKick value.
+ - The bot will automatically create a configuration file for each guild in the guild_configs directory. You can manually edit these files to adjust settings like the ageKick value.
 
 Directory Structure
 
