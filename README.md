@@ -1,6 +1,3 @@
-# I'll create the README.md file for you with the information provided.
-
-readme_content = """
 # BanBot
 
 ## Overview
