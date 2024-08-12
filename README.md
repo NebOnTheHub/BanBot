@@ -1,55 +1,60 @@
-# Discord Ban Bot
+# I'll create the README.md file for you with the information provided.
 
-A Discord bot built with Discord.js v14 that automates the banning and kicking of users based on predefined rules. The bot pulls banned usernames from a JSON file and automatically bans users when they join the server. It also includes a feature to kick accounts that are younger than a specified age.
+readme_content = """
+# BanBot
+
+## Overview
+
+**BanBot** is a Discord bot designed to help server administrators manage banned users across multiple guilds. With BanBot, you can easily ban or unban users from all servers the bot is a member of, set minimum account age requirements for new members, and provide ban appeal links.
 
 ## Features
 
-- **Ban Management:**
-  - Ban users upon joining if their ID is listed in a JSON file.
-  - Send a direct message to banned users before they are banned.
-  - Easily add or remove users from the ban list using slash commands.
-
-- **Account Age Kicking:**
-  - Kick accounts that are younger than a specified time period.
-  - Configure the minimum account age for each server.
-  - Ability to disable the age kick feature for specific servers.
-
-- **Guild-Specific Configuration:**
-  - Store configurations for each guild in individual JSON files.
-  - Customize settings like the minimum account age required to join.
+- **Add Ban:** Ban a user from all guilds the bot is a member of, with an optional reason.
+- **Remove Ban:** Unban a user from all guilds the bot is a member of.
+- **Age Kick:** Automatically kick members whose accounts are younger than a specified duration.
+- **Ban Appeal Link:** Configure a link for banned users to appeal their ban.
+- **List Bans:** Display a list of all banned users.
+- **GitHub Repository:** Command to display a link to the bot's GitHub repository.
 
 ## Commands
 
-- `/addban <user_id>`: Add a user ID to the ban list.
-- `/removeban <user_id>`: Remove a user ID from the ban list.
-- `/agekick <duration>`: Set the minimum account age required to join the server (e.g., `1w`, `10m`). If not specified, defaults to 1 week.
+### `/addban`
+- **Description:** Add a user to the ban list and ban them from all guilds.
+- **Options:**
+  - `userid` (required): The ID of the user to ban.
+  - `reason` (optional): The reason for banning the user.
+
+### `/removeban`
+- **Description:** Remove a user from the ban list and unban them from all guilds.
+- **Options:**
+  - `userid` (required): The ID of the user to unban.
+
+### `/agekick`
+- **Description:** Set the minimum account age required to join the server.
+- **Options:**
+  - `duration` (optional): The minimum account age (e.g., 1d, 10m). Default is `1w`.
+
+### `/config`
+- **Description:** Set the ban appeal link.
+- **Options:**
+  - `appeallink` (optional): The URL where banned users can appeal their ban.
+
+### `/listbans`
+- **Description:** List all users currently banned.
+
+### `/github`
+- **Description:** Display the GitHub repository link for BanBot.
 
 ## Configuration
- - The bot will automatically create a configuration file for each guild in the guild_configs directory. You can manually edit these files to adjust settings like the ageKick value.
-
-Directory Structure
-
-```perl
-discord-ban-bot/
-│
-├── node_modules/            # Installed Node.js packages
-├── guild_configs/           # Folder to store per-guild configuration files
-│   ├── 123456789012345678.json  # Example config file for a guild with ID 123456789012345678
-│   └── 987654321098765432.json  # Another example config file for a different guild
-│
-├── bannedUsers.json         # JSON file storing banned user IDs
-├── src/                     # Source files directory
-│   ├── index.js             # Main bot script
-│   └── ...                  # Other source files (if any)
-├── package.json             # Project metadata and dependencies
-└── package-lock.json        # Automatically generated for dependency management
-```
-
-## License
-- This project is licensed under the MIT License. See the LICENSE file for details.
+- The bot stores guild-specific configurations in the guild_configs directory.
+- Banned users are stored in bannedUsers.json.
+- The default minimum account age for joining is set to 1w (1 week). You can adjust this using the /agekick command.
 
 ## Contributing
-- Feel free to open issues or submit pull requests if you'd like to contribute to this project.
+Feel free to open issues or submit pull requests to improve the bot.
 
-## Contact
-- For any questions or issues, you can contact me via Discord: nebby.dev.
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Author
+BanBot was created by nebby.dev.
