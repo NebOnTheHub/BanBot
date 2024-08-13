@@ -1,5 +1,5 @@
 # BanBot
-
+ - yes I know this looks rushed, It's caused it was. The code is compacted and more of me testing a template.
 ## Overview
 
 **BanBot** is a Discord bot designed to help server administrators manage banned users across multiple guilds. With BanBot, you can easily ban or unban users from all servers the bot is a member of, set minimum account age requirements for new members, and provide ban appeal links.
