@@ -1,57 +1,77 @@
 # BanBot
- - yes I know this looks rushed, It's caused it was. The code is compacted and more of me testing a template.
+
 ## Overview
 
-**BanBot** is a Discord bot designed to help server administrators manage banned users across multiple guilds. With BanBot, you can easily ban or unban users from all servers the bot is a member of, set minimum account age requirements for new members, and provide ban appeal links.
+**BanBot** is a Discord bot designed by nebby.dev to manage user bans and account age restrictions across multiple servers. The bot maintains a ban list and performs various ban-related actions, including adding/removing users from the ban list and enforcing account age restrictions.
+
+![BanBot Logo](https://media.discordapp.net/attachments/1203830553820790795/1274554947010302044/1723947959650.png?ex=66ca964b&is=66c944cb&hm=b2dc3afc71be91a9da3daf281dad1f4701b0c3c917afe1d530f904509ee6655e&=&format=webp&quality=lossless&width=562&height=562)
 
 ## Features
 
-- **Add Ban:** Ban a user from all guilds the bot is a member of, with an optional reason.
-- **Remove Ban:** Unban a user from all guilds the bot is a member of.
-- **Age Kick:** Automatically kick members whose accounts are younger than a specified duration.
-- **Ban Appeal Link:** Configure a link for banned users to appeal their ban.
-- **List Bans:** Display a list of all banned users.
-- **GitHub Repository:** Command to display a link to the bot's GitHub repository.
+- **Ban Users**: Add users to the ban list and apply bans across all guilds the bot is in.
+- **Unban Users**: Remove users from the ban list and lift bans.
+- **Age Kick**: Configure a minimum account age required to join your server.
+- **Configuration**: Set up ban appeal links and log channels.
+- **List Bans**: Display a list of banned users with pagination support.
+- **Status Updates**: The bot regularly updates its status to show various information, including the number of banned users.
+
+## Setup
+
+### Prerequisites
+
+- Node.js (v16.0.0 or higher)
+- Discord Bot Token
+- Your Discord Client ID
+
+### Installation
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/NebOnTheHub/BanBot.git
+    cd BanBot
+    ```
+
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3. **Configure the bot**:
+    - Replace `YOUR_BOT_TOKEN` and `YOUR_CLIENT_ID` in the `index.js` file with your actual Discord bot token and client ID.
+
+4. **Run the bot**:
+    ```bash
+    node index.js
+    ```
 
 ## Commands
 
-### `/addban`
-- **Description:** Add a user to the ban list and ban them from all guilds.
-- **Options:**
-  - `userid` (required): The ID of the user to ban.
-  - `reason` (optional): The reason for banning the user.
-
-### `/removeban`
-- **Description:** Remove a user from the ban list and unban them from all guilds.
-- **Options:**
-  - `userid` (required): The ID of the user to unban.
-
-### `/agekick`
-- **Description:** Set the minimum account age required to join the server.
-- **Options:**
-  - `duration` (optional): The minimum account age (e.g., 1d, 10m). Default is `1w`.
-
-### `/config`
-- **Description:** Set the ban appeal link.
-- **Options:**
-  - `appeallink` (optional): The URL where banned users can appeal their ban.
-
-### `/listbans`
-- **Description:** List all users currently banned.
-
-### `/github`
-- **Description:** Display the GitHub repository link for BanBot.
+- `/db-ban <userid> [reason]`: Add a user to the ban list with an optional reason.
+- `/db-unban <userid>`: Remove a user from the ban list.
+- `/age-kick [duration]`: Set the minimum account age required to join the server (e.g., `1w`, `10m`).
+- `/config [appeallink] [logchannel]`: Set or update the ban appeal link and log channel.
+- `/list-bans`: Display a paginated list of banned users.
+- `/github`: Get the link to the GitHub repository.
 
 ## Configuration
-- The bot stores guild-specific configurations in the guild_configs directory.
-- Banned users are stored in bannedUsers.json.
-- The default minimum account age for joining is set to 1w (1 week). You can adjust this using the /agekick command.
+
+- **`bannedUsers.json`**: Contains the list of banned users with reasons.
+- **`guild_configs/`**: Directory containing configuration files for each guild.
 
 ## Contributing
-Feel free to open issues or submit pull requests to improve the bot.
+
+Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/NebOnTheHub/BanBot).
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Author
-BanBot was created by nebby.dev.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Contact me @nebby.dev, or join [Build-A-Realm](https://discord.gg/d4KpNaXM9v).
+
+## Acknowledgements
+
+- [discord.js](https://discord.js.org/) for the Discord API wrapper.
+- [Node.js](https://nodejs.org/) for the runtime environment.
+
