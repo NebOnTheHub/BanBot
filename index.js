@@ -33,15 +33,15 @@ if (fs.existsSync(bannedUsersPath)) bannedUsers = JSON.parse(fs.readFileSync(ban
 
 const YOUR_BOT_TOKEN = '';
 const YOUR_CLIENT_ID = ''; 
-const USERS_PER_PAGE = 5; // /list-bans
+const USERS_PER_PAGE = 5; // /list-bans (doesnt work atm, if you can fix it lmk)
 
 // Set bot status messages
 const statuses = [
-    //{ name: 'over 7.8k+ Members', type: ActivityType.Watching },
+    { name: 'over 7.8k+ Members', type: ActivityType.Watching },
     { name: 'with a laser 🐱', type: ActivityType.Playing },
     { name: 'Minecraft', type: ActivityType.Playing },
-    //{ name: 'over discord.gg/d4KpNaXM9v', type: ActivityType.Watching },
-    //{ name: 'over discord.gg/realmhub', type: ActivityType.Watching },
+    { name: 'over discord.gg/d4KpNaXM9v', type: ActivityType.Watching },
+    { name: 'over discord.gg/realmhub', type: ActivityType.Watching },
     { name: `${Object.keys(bannedUsers).length}+ Banned Users!!`, type: ActivityType.Watching },
 ];
 
@@ -49,7 +49,7 @@ const statuses = [
 const guildConfigsPath = path.join(__dirname, 'guild_configs');
 if (!fs.existsSync(guildConfigsPath)) fs.mkdirSync(guildConfigsPath);
 
-// Set up slash commands using SlashCommandBuilder for better maintainability
+//set commands
 const commands = [
     new SlashCommandBuilder()
         .setName('db-ban')
@@ -217,6 +217,7 @@ async function handleNewMember(member) {
         return member.kick('Account is too new.');
     }
 }
+
 async function sendBanList(interaction, page = 0, initialInteraction = true) {
     const bannedUserIds = Object.keys(bannedUsers);
     const totalPages = Math.ceil(bannedUserIds.length / USERS_PER_PAGE);
@@ -295,6 +296,6 @@ function parseDuration(duration) {
 
 setInterval(async () => {
     for (const guild of bot.guilds.cache.values()) await banUsersInGuild(guild);
-}, 86400000);
+}, 86400000); // havent tested this fr
 
 bot.login(YOUR_BOT_TOKEN);
