@@ -4,8 +4,6 @@
 
 **BanBot** is a Discord bot designed by nebby.dev to manage user bans and account age restrictions across multiple servers. The bot maintains a ban list and performs various ban-related actions, including adding/removing users from the ban list and enforcing account age restrictions.
 
-![BanBot Logo](https://media.discordapp.net/attachments/1203830553820790795/1274554947010302044/1723947959650.png?ex=66ca964b&is=66c944cb&hm=b2dc3afc71be91a9da3daf281dad1f4701b0c3c917afe1d530f904509ee6655e&=&format=webp&quality=lossless&width=562&height=562)
-
 ## Features
 
 - **Ban Users**: Add users to the ban list and apply bans across all guilds the bot is in.
